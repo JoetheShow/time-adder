@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Time Calculationr</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+      crossorigin="anonymous">
+    </script>
+  </head>
+​
+  <body>
+    <form id="calculate">
+      <div class="input-container">
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+​
+        <p>
+          <input type="input" class="hours" placeholder="Hours">
+          <input type="input" class="minutes" placeholder="Minutes">
+        </p>
+      </div>
+​
+      <p>
+        <input type="submit">
+      </p>
+​
+      <h3>Total</h3>
+      <input type="input" disabled id="total">
+    </form>
+​
+    <script>
+      $("form#calculate").submit(function() {
+        var totalHoursClocked   = 0;
+        var totalMinutesClocked = 0;
+​
+        $(".hours").each(function() {
+          if($(this).val() == "") { return; }
+​
+          totalHoursClocked = totalHoursClocked + parseInt($(this).val());
+        });
+​
+        $(".minutes").each(function() {
+          if($(this).val() == "") { return; }
+​
+          totalMinutesClocked = totalMinutesClocked + parseInt($(this).val());
+        });
+​
+        while(totalMinutesClocked >= 60) {
+          totalMinutesClocked = totalMinutesClocked - 60;
+          totalHoursClocked   = totalHoursClocked + 1;
+        }
+​
+        $("input#total").val(totalHoursClocked + " h " + totalMinutesClocked + " m");
+​
+        return false;
+      });
+    </script>
+  </body>
+</html>
